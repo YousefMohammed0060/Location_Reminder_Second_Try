@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_reminder_save"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
@@ -86,6 +87,31 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
+        <TextView
+            android:id="@+id/remindingLocationRangeLable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="Reminding Location Range (metres)"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectLocation" />
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:text="@{viewModel.remindingLocationRange.toString()}"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintBottom_toBottomOf="@+id/remindingLocationRangeLable"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/remindingLocationRangeLable"
+            app:layout_constraintTop_toTopOf="@+id/remindingLocationRangeLable" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

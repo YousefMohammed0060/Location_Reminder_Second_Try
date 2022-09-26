@@ -20,6 +20,8 @@ class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSo
     val selectedPOI = MutableLiveData<PointOfInterest>()
     val latitude = MutableLiveData<Double>()
     val longitude = MutableLiveData<Double>()
+    val reminderId = MutableLiveData<String>()
+    val remindingLocationRange = MutableLiveData(30)
 
     /**
      * Clear the live data objects to start fresh next time the view model gets called
@@ -31,6 +33,7 @@ class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSo
         selectedPOI.value = null
         latitude.value = null
         longitude.value = null
+        reminderId.value = null
     }
 
     /**
@@ -78,5 +81,17 @@ class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSo
             return false
         }
         return true
+    }
+
+
+    fun editReminder(reminderData: ReminderDataItem){
+
+        reminderTitle.value = reminderData.title
+        reminderDescription.value = reminderData.description
+        reminderSelectedLocationStr.value = reminderData.location
+        latitude.value = reminderData.latitude
+        longitude.value = reminderData.longitude
+        reminderId.value = reminderData.id
+
     }
 }
