@@ -28,15 +28,23 @@ private var shouldReturnError = false
     }
 
     override suspend fun getReminder(id: String): Result<ReminderDTO> {
-        TODO("return the reminder with the id")
+        val reminder = reminders?.find { it.id == id }
+        return if (shouldReturnError) {
+            Result.Error("Reminder not found!")
+        } else if (reminder != null) {
+            Result.Success(reminder)
+        } else {
+            Result.Error("Reminder not found!")
+        }
     }
 
     override suspend fun deleteAllReminders() {
-        TODO("delete all the reminders")
+        reminders?.clear()
     }
 
     override suspend fun deleteReminder(id: String) {
-        TODO("Not yet implemented")
+        val reminder = reminders?.find { it.id == id }
+        reminders?.remove(reminder)
     }
 
 
