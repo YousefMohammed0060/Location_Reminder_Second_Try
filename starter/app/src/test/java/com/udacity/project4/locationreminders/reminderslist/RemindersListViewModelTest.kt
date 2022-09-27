@@ -31,8 +31,7 @@ class RemindersListViewModelTest {
     @Before
     fun setupViewModel() {
         repository = FakeDataSource()
-        viewModel =
-            RemindersListViewModel(ApplicationProvider.getApplicationContext(), repository)
+        viewModel = RemindersListViewModel(ApplicationProvider.getApplicationContext(), repository)
     }
 
     @Test
